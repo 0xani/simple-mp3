@@ -17,9 +17,7 @@ def mp3_lst():
     return mp3_lst
         
 def menu(mp3s):
-    if len(mp3s) == 0:
-        input('Music folder is empty. Add some songs to get rockin!')
-    else:
+    if len(mp3s) != 0:
         print("Please select from the following:")
         i = 0
         print('ID:')
@@ -36,12 +34,12 @@ def simple_mp3():
     done = False
 
     while not done:
-        menu(mp3s)
         try:
             if len(mp3s) == 0:
-                usr = input("Add some songs to simple-mp3/Music to get rockin! Enter (Q) to (Q)uit")
+                usr = input("Add some songs to simple-mp3/Music to get rockin! Enter (Q) to (Q)uit: ")
                 done = parse_input(usr)                
             else:
+                menu(mp3s)
                 usr = input('Number or (S)top or (Q)uit : ')
                 done = parse_input(usr)
                 if not done and usr.lower() != 's':
